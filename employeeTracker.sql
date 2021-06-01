@@ -3,15 +3,25 @@ CREATE database employessDB;
 
 USE employessDB;
 
-CREATE TABLE top5000 (
-  position INT NOT NULL,
-  artist VARCHAR(100) NULL,
-  song VARCHAR(100) NULL,
-  year INT NULL,
-  raw_total DECIMAL(10,4) NULL,
-  raw_usa DECIMAL(10,4) NULL,
-  raw_uk DECIMAL(10,4) NULL,
-  raw_eur DECIMAL(10,4) NULL,
-  raw_row DECIMAL(10,4) NULL,
-  PRIMARY KEY (position)
+CREATE TABLE department (
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    name VARCHAR(30) NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE role (
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    title VARCHAR(30) NULL,
+    salary DECIMAL(10,2) NULL,
+    department_id INT NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE employee (
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(100) NULL,
+    last_name VARCHAR(100) NULL,
+    role_id INT NOT NULL,
+    manager_id INT NULL,
+    PRIMARY KEY (id)
 );
